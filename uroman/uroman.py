@@ -2731,7 +2731,7 @@ class Lattice:
                 if self.s[edge.end : fraction_connector_end] != fraction_connector:
                     continue
                 right_edge = self.best_right_neighbor_edge(fraction_connector_end)
-                if getattr(right_edge, "value") is None:
+                if not hasattr(right_edge, "value") or right_edge.value is None:
                     continue
                 if edge.value == 100:
                     if (
